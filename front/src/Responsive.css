@@ -1,0 +1,19 @@
+@media screen and (max-width: 1000px) {
+  .left-navbar {
+    display: none;
+  }
+
+  .dashboard {
+    flex: 0.8;
+  }
+
+  .header-btn {
+    padding: 5px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .dashboard {
+    flex: 1;
+  }
+}

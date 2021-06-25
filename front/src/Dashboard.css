@@ -1,0 +1,5 @@
+.dashboard {
+  flex: 0.4;
+  border-right: 1px solid lightgray;
+  min-height: calc(90vh - 1px);
+}

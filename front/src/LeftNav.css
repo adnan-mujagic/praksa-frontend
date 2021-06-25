@@ -1,0 +1,7 @@
+.left-navbar {
+  flex: 0.3;
+  border-right: 1px solid lightgray;
+  min-height: calc(90vh - 1px);
+  display: flex;
+  justify-content: center;
+}

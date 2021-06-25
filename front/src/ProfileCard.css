@@ -1,0 +1,42 @@
+.profile-card {
+  min-width: 200px;
+  margin-top: 20px;
+  padding: 20px;
+  height: fit-content;
+  border-radius: 12px;
+  box-shadow: 1px 3px 3px 4px rgb(218, 218, 218);
+}
+
+.profile-card-img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 16px;
+}
+
+img {
+  max-width: 135%;
+  max-height: 135%;
+}
+
+.profile-card-top {
+  display: flex;
+  align-items: center;
+}
+
+.profile-card-full-name {
+  font-size: 21px;
+  font-weight: bold;
+  color: purple;
+}
+
+.profile-card-username {
+  color: rgb(161, 161, 161);
+  font-size: 12px;
+}
+
+.profile-card-other {
+  margin-top: 20px;
+  color: rgb(161, 161, 161);
+}

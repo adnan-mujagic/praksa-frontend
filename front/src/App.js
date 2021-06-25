@@ -1,21 +1,17 @@
 import './App.css';
+import LeftNav from './LeftNav';
+import Dashboard from './Dashboard';
+import Header from './Header';
+import "./Responsive.css"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header></Header>
+      <div className="app-content">
+        <LeftNav username="adnan-mujagic"/>
+        <Dashboard />
+      </div>
     </div>
   );
 }
