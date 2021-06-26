@@ -1,6 +1,6 @@
 import React from "react";
 import "./Dashboard.css";
-import Post from "./Post";
+import Post from "../Post/Post";
 
 class Dashboard extends React.Component{
     

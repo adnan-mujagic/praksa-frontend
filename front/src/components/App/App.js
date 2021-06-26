@@ -1,8 +1,8 @@
 import './App.css';
-import LeftNav from './LeftNav';
-import Dashboard from './Dashboard';
-import Header from './Header';
-import "./Responsive.css"
+import LeftNav from '../LeftNav/LeftNav';
+import Dashboard from '../Dashboard/Dashboard';
+import Header from '../Header/Header';
+import "../../Responsive.css"
 
 function App() {
   return (

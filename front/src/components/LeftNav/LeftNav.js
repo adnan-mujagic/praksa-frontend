@@ -2,7 +2,7 @@
 import "./LeftNav.css";
 import React from "react";
 
-import ProfileCard from "./ProfileCard";
+import ProfileCard from "../ProfileCard/ProfileCard";
 
 class LeftNav extends React.Component{
     
