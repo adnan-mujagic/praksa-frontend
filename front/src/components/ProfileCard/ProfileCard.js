@@ -1,13 +1,11 @@
 import React from "react";
 import "./ProfileCard.css";
 
-
 export default class ProfileCard extends React.Component{
-    
-
 
     render(){
         return(
+            
             <div className="profile-card">
                 <div className="profile-card-top">
                     <div className="profile-card-img">

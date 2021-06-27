@@ -13,7 +13,6 @@ class Dashboard extends React.Component{
         const response = await fetch(url);
         const results = await response.json();
         this.setState({posts: results.data, loading:false})
-        console.log(results.data);
     }
   
     componentWillUnmount() {
@@ -26,7 +25,7 @@ class Dashboard extends React.Component{
                 <div>Loading...</div>:
                 
                 <div>{this.state.posts.map(post => (    
-                    <Post name={post.name} cost={post.cost} description={post.description} state={post.state} product_picture={post.image_url} />
+                    <Post key={post._id} name={post.name} cost={post.cost} description={post.description} state={post.state} product_picture={post.image_url} />
                 ))}
                 
                 </div>}
