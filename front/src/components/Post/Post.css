@@ -19,8 +19,7 @@
 }
 
 img {
-  max-width: 135%;
-  max-height: 135%;
+  object-fit: contain;
 }
 
 .post-content {

@@ -33,6 +33,7 @@ class LeftNav extends React.Component{
             retrieved_user.stores = result.data;
             this.setState({loading:false, user:retrieved_user});
         }catch(err){
+            //should probably have some code to take the user back to login here!
             console.log(err.message);
         }
         
