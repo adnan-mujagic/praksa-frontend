@@ -1,5 +1,6 @@
 import React from "react";
 import "./UserProfile.css";
+import StoreCard from "../StoreCard/StoreCard";
 var jwt = require('jsonwebtoken');
 
 
@@ -54,10 +55,15 @@ export default class UserProfile extends React.Component{
                         </div>
                     </div>
                 </div>
-                <div className="profile-stores">
-                    {this.state.user.stores.map(store => (
-                        <div>{store.name}</div>
-                    ))}              
+                <div className = "profile-stores-wrapper">
+                    <div className="profile-stores-header">{"Stores"}</div>
+
+                    <div className="profile-stores">
+                        {this.state.user.stores.map(store => (
+                            <StoreCard key={store._id} profile_picture={store.image} 
+                            name={store.name} city={store.location.city} address={store.location.address}/>
+                        ))}              
+                    </div>
                 </div>
             </div>
         )

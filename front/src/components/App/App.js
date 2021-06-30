@@ -36,6 +36,7 @@ function App() {
         </Switch>
         <Switch>
           <Route path="/user">
+            <Header></Header>
             <UserProfile/>
           </Route>
         </Switch>
