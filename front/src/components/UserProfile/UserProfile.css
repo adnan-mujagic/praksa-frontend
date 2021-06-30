@@ -1,0 +1,65 @@
+.user-profile {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  min-height: 100vh;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+}
+
+.profile-header {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  padding: 16px;
+}
+
+.user-profile-picture {
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.user-profile-credentials {
+  margin-left: 16px;
+}
+
+.user-profile-full-name {
+  font-size: 32px;
+  font-weight: bold;
+  color: purple;
+}
+
+.user-profile-username {
+  font-size: 12px;
+  color: rgb(129, 129, 129);
+  padding-bottom: 4px;
+}
+
+.user-profile-stores-owned {
+  font-size: 20px;
+  color: rgb(83, 83, 83);
+}
+
+.user-profile-contacts {
+  padding-top: 4px;
+  border-top: 1px solid lightgray;
+  font-weight: bold;
+  color: crimson;
+}
+
+.user-profile-phone-number {
+  color: rgb(83, 83, 83);
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.user-profile-email {
+  color: rgb(83, 83, 83);
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.profile-stores {
+  padding: 16px;
+}
