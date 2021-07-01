@@ -14,20 +14,26 @@ function App() {
   const { token, setToken } = useToken();
 
   if(!token) {
-    return <Login setToken={setToken} />
+    return (
+      <div>
+        <Header />
+        <Login setToken={setToken} />
+      </div>
+        
+    );
   }
   
   return (
     <div className="app">
+      <Header></Header>
       <BrowserRouter>
         <Switch>
           <Route path="/login">
-            <Login/>
+            <Login setToken={setToken}/>
           </Route>
         </Switch>
         <Switch>
           <Route path="/dashboard">
-            <Header></Header>
             <div className="app-content">
               <LeftNav username="adnan-mujagic"/>
               <Dashboard />
@@ -35,9 +41,7 @@ function App() {
           </Route>
         </Switch>
         <Switch>
-          <Route path="/user">
-            <Header></Header>
-            <UserProfile/>
+          <Route path="/user/:id" children ={<UserProfile />}>
           </Route>
         </Switch>
       </BrowserRouter>

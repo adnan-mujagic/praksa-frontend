@@ -39,4 +39,15 @@ img {
 .profile-card-other {
   margin-top: 20px;
   color: rgb(161, 161, 161);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+}
+
+.profile-card-btn {
+  border-radius: 15px;
+  padding: 5px;
+  background-color: transparent;
+  border: 1px solid purple;
 }

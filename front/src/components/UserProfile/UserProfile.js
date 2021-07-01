@@ -5,6 +5,7 @@ var jwt = require('jsonwebtoken');
 
 
 export default class UserProfile extends React.Component{
+
     state={
         loading:true,
         user:null

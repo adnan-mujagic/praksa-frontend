@@ -2,6 +2,15 @@ import React from "react";
 import "./ProfileCard.css";
 
 export default class ProfileCard extends React.Component{
+    constructor(props){
+        super(props);
+
+        this.onVisitProfile = this.onVisitProfile.bind(this);
+    }
+
+    onVisitProfile(){
+        window.location = "/user/"+this.props.uid;
+    }
 
     render(){
         return(
@@ -17,7 +26,10 @@ export default class ProfileCard extends React.Component{
                     </div>
                 </div>
                 <div className="profile-card-other">
-                    Stores owned: {this.props.stores.length}
+                    <div>
+                        Stores owned: {this.props.stores.length}
+                    </div>
+                    <button className="profile-card-btn" onClick={this.onVisitProfile}>Visit Profile</button>
                 </div>
             </div>
         )
