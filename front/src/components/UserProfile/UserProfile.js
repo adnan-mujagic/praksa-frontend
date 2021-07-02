@@ -59,7 +59,7 @@ export default function UserProfile(){
 
                 <div className="profile-stores">
                     {user.stores.map(store => (
-                        <StoreCard key={store._id} profile_picture={store.image} 
+                        <StoreCard key={store._id} store_id={store._id} profile_picture={store.image} 
                         name={store.name} city={store.location.city} address={store.location.address}/>
                     ))}              
                 </div>

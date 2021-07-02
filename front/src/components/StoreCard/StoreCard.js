@@ -6,11 +6,21 @@ import React from "react";
 
 export default class StoreCard extends React.Component{
 
+    constructor(props){
+        super(props);
+        this.onStoreClick = this.onStoreClick.bind(this);
+    }
+
+    onStoreClick(){
+        console.log(this.props.store_id);
+        window.location = "/store/"+this.props.store_id;
+    }
+
     render(){
         return(
-            <div className="store-card">
+            <div className="store-card" onClick={this.onStoreClick}>
                 <div className="store-card-picture">
-                    <img src={this.props.profile_picture?this.props.profile_picture:"https://img.freepik.com/free-vector/people-standing-store-queue_23-2148594615.jpg?size=626&ext=jpg"} alt="Store"/>
+                    <img src={this.props.profile_picture?this.props.profile_picture:"https://image.freepik.com/free-vector/convenience-store-isometric-shop-24-hour-isometric-design_201904-46.jpg"} alt="Store"/>
                 </div>
                 <div className="store-card-details">
                     <div className="store-card-name">{this.props.name}</div>

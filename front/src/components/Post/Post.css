@@ -9,6 +9,11 @@
   border-bottom: 1px solid lightgray;
 }
 
+.post-header:hover {
+  background-color: rgba(189, 0, 189, 0.062);
+  cursor: pointer;
+}
+
 .store-image {
   height: 30px;
   width: 30px;
@@ -16,10 +21,14 @@
   overflow: hidden;
   margin-right: 20px;
   margin-left: 20px;
+  border: 1px solid rgb(150, 150, 150);
 }
 
 img {
   object-fit: contain;
+  margin-left: 50%;
+  /* Move to the left by 50% of own width */
+  transform: translateX(-50%);
 }
 
 .post-content {

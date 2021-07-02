@@ -4,14 +4,22 @@ import "./Post.css"
 
 
 export default class Post extends React.Component{
+    constructor(props){
+        super(props);
+        this.onHeaderClick = this.onHeaderClick.bind(this);
+    }
+
+    onHeaderClick(){
+        window.location = "/store/"+this.props.store_id;
+    }
 
 
     render(){
         return(
             <div className="post">
-                <div className="post-header">
+                <div className="post-header" onClick={this.onHeaderClick}>
                     <div className="store-image">
-                        <img src={this.props.profile_picture?this.props.profile_picture:"https://img.freepik.com/free-vector/people-standing-store-queue_23-2148594615.jpg?size=626&ext=jpg"} alt="Store"/>
+                        <img src={this.props.profile_picture?this.props.profile_picture:"https://image.freepik.com/free-vector/convenience-store-isometric-shop-24-hour-isometric-design_201904-46.jpg"} alt="Store"/>
                     </div>
                     <div className="store-name">{this.props.store_name?this.props.store_name:"Anonymous Store"}</div>
                 </div>

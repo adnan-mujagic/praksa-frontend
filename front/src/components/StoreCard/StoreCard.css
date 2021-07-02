@@ -4,13 +4,19 @@
   align-items: center;
   box-shadow: 5px 5px 10px 0px rgba(105, 105, 105, 1);
   border-radius: 5px;
-  background-color: rgb(241, 241, 241);
+}
+
+.store-card:hover {
+  background-color: rgba(189, 0, 189, 0.062);
+  cursor: pointer;
 }
 
 .store-card-picture {
   height: 100px;
   width: 100px;
   overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid lightgray;
 }
 
 .store-card-details {

@@ -46,7 +46,7 @@ export default function StoreProfile() {
         <div className="store-profile">
             <div className="store-profile-header">
                 <div className="store-profile-image">
-                    <img src={store.image} alt="Store"/>
+                    <img src={store.image?store.image: "https://image.freepik.com/free-vector/convenience-store-isometric-shop-24-hour-isometric-design_201904-46.jpg"} alt="Store"/>
                 </div>
                 <div className="store-profile-creds">
                     <div className="store-profile-title">{store.name}</div>
@@ -57,7 +57,7 @@ export default function StoreProfile() {
                     <div className="store-profile-owner-image">
                         <img alt="Store owner" onClick={onUserClick} src={store.owner.image?store.owner.image: "https://media.macphun.com/img/uploads/customer/how-to/579/15531840725c93b5489d84e9.43781620.jpg?q=85&w=1340"}/>
                     </div>
-                    <div className="store-profile-owner-username" onClick={onUserClick}>@username</div>
+                    <div className="store-profile-owner-username" onClick={onUserClick}>@{store.owner.username}</div>
                 </div>
             </div>
             <div className="products">
