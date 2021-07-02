@@ -6,21 +6,26 @@ const useFetch = (params) => {
     const [store, setStore] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    useEffect(async ()=>{
-        let url = "https://mediasell.herokuapp.com/api/stores/"+params;
-        let response = await fetch(url);
-        let result = await response.json();
-        let retrieved_store = result.data;
+    useEffect(()=>{
+
+        async function fetchData() {
+            let url = "https://mediasell.herokuapp.com/api/stores/"+params;
+            let response = await fetch(url);
+            let result = await response.json();
+            let retrieved_store = result.data;
+            
+            url+="/posts";
+            response = await fetch(url);
+            
+            result = await response.json();
+            retrieved_store.posts = result.data;
+            console.log(retrieved_store);
+            
+            setStore(retrieved_store);
+            setLoading(false) 
+        }
+        fetchData();
         
-        url+="/posts";
-        response = await fetch(url);
-        
-        result = await response.json();
-        retrieved_store.posts = result.data;
-        console.log(retrieved_store);
-        
-        setStore(retrieved_store);
-        setLoading(false)
     },[])
     return {store, loading}
 }
