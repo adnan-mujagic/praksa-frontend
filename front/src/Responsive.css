@@ -16,6 +16,10 @@
   .dashboard {
     flex: 1;
   }
+
+  .store-profile-header {
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 400px) {

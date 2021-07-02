@@ -6,6 +6,7 @@ import Dashboard from '../Dashboard/Dashboard';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import UserProfile from '../UserProfile/UserProfile';
+import StoreProfile from '../StoreProfile/StoreProfile';
 import "../../Responsive.css"
 import React from 'react';
 import useToken from './useToken';
@@ -42,6 +43,10 @@ function App() {
         </Switch>
         <Switch>
           <Route path="/user/:id" children ={<UserProfile />}>
+          </Route>
+        </Switch>
+        <Switch>
+          <Route path="/store/:id" children ={<StoreProfile />}>
           </Route>
         </Switch>
       </BrowserRouter>
