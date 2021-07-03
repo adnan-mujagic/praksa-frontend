@@ -24,8 +24,10 @@ class Dashboard extends React.Component{
                 {this.state.loading || !this.state.posts?
                 <div>Loading...</div>:
                 
-                <div>{this.state.posts.map(post => (    
-                    <Post key={post._id} store_id={post.store._id} profile_picture={post.store.image} store_name={post.store.name} name={post.name} cost={post.cost} description={post.description} state={post.state} product_picture={post.image_url} />
+                <div>{this.state.posts.map(post => (
+                    post.quantity && post.quantity>0?  
+                    <Post key={post._id} quantity={post.quantity} store_id={post.store._id} profile_picture={post.store.image} store_name={post.store.name} name={post.name} cost={post.cost} description={post.description} state={post.state} product_picture={post.image_url} />:
+                    null
                 ))}
                 
                 </div>}

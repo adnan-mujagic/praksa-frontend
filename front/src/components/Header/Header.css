@@ -13,6 +13,12 @@
   font-weight: bold;
 }
 
+.header-logo:hover {
+  cursor: pointer;
+  color: rgb(85, 0, 85);
+  transition: 0.25s;
+}
+
 .header-actions {
   margin-right: 20px;
 }
@@ -30,6 +36,7 @@
 }
 
 .header-btn:hover {
+  cursor: pointer;
   color: white;
   background-color: purple;
   transition: 0.3s;

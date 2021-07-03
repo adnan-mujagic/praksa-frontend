@@ -37,7 +37,11 @@ export default class Post extends React.Component{
                         <div className="product-cost">US$ {this.props.cost}</div>
                         <div className="product-state">State: {this.props.state}</div>
                         <div className="product-description">Description: {this.props.description}</div>
-
+                        {this.props.quantity?
+                            <div className="product-quantity">Quantity: {this.props.quantity}</div>
+                            :
+                            null
+                        }
                         <button className="post-buy-btn">Buy Item</button>
                     </div>
                 </div>

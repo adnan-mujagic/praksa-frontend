@@ -22,10 +22,14 @@ class Header extends React.Component{
         window.location = "/register"
     }
 
+    onTitleClick(){
+        window.location = "/dashboard";
+    }
+
     render(){
         return(
             <div className="header">
-                <div className="header-logo">mediasell</div>
+                <div className="header-logo" onClick={this.onTitleClick}>mediasell</div>
                 
                     {this.state.loggedIn?
                         <div className="header-actions">
