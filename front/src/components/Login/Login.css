@@ -35,6 +35,7 @@ input {
 }
 
 .login-button:hover {
+  cursor: pointer;
   color: white;
   background-color: purple;
   transition: 0.3s;
