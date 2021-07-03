@@ -25,7 +25,7 @@ const useFetch = (params) => {
             setLoading(false);
         }
         fetchData();
-    },[])
+    },[params.id])
     return {user, loading}
 }
 

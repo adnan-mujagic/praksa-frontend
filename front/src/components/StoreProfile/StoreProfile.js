@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
+import ProfilePost from "../ProfilePost/ProfilePost";
 import "./StoreProfile.css";
 
 const useFetch = (params) => {
@@ -9,13 +10,12 @@ const useFetch = (params) => {
     useEffect(()=>{
 
         async function fetchData() {
-            let url = "https://mediasell.herokuapp.com/api/stores/"+params;
+            let url = "https://mediasell.herokuapp.com/api/stores/" + params;
             let response = await fetch(url);
             let result = await response.json();
             let retrieved_store = result.data;
             
-            url+="/posts";
-            response = await fetch(url);
+            response = await fetch(url + "/posts");
             
             result = await response.json();
             retrieved_store.posts = result.data;
@@ -26,7 +26,7 @@ const useFetch = (params) => {
         }
         fetchData();
         
-    },[])
+    },[params])
     return {store, loading}
 }
 
@@ -57,16 +57,26 @@ export default function StoreProfile() {
                     <div className="store-profile-title">{store.name}</div>
                     <div className="store-profile-info">City: {store.location.city}</div>
                     <div className="store-profile-info">Address: {store.location.address}</div>
-                </div>
-                <div className="store-profile-owner">
-                    <div className="store-profile-owner-image">
-                        <img alt="Store owner" onClick={onUserClick} src={store.owner.image?store.owner.image: "https://media.macphun.com/img/uploads/customer/how-to/579/15531840725c93b5489d84e9.43781620.jpg?q=85&w=1340"}/>
+                    <div className="store-profile-owner">
+                        <div className="store-profile-owner-image">
+                            <img alt="Store owner" onClick={onUserClick} src={store.owner.image?store.owner.image: "https://media.macphun.com/img/uploads/customer/how-to/579/15531840725c93b5489d84e9.43781620.jpg?q=85&w=1340"}/>
+                        </div>
+                        <div className="store-profile-owner-username" onClick={onUserClick}>@{store.owner.username}</div>
                     </div>
-                    <div className="store-profile-owner-username" onClick={onUserClick}>@{store.owner.username}</div>
                 </div>
             </div>
             <div className="products">
-                To be implemented
+                {store.posts.length===0?
+                    <div>This store isn't selling any items yet!</div>:
+
+                    <div className="products-wrapper">
+                        {store.posts.map(post => (
+                            <ProfilePost key={post._id} image={post.image_url} />
+                        ))}
+                    </div>
+                }
+
+                
             </div>
         </div>
         

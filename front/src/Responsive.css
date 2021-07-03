@@ -20,6 +20,10 @@
   .store-profile-header {
     flex-direction: column;
   }
+
+  .store-profile-creds {
+    margin-left: 0px;
+  }
 }
 
 @media screen and (max-width: 400px) {
