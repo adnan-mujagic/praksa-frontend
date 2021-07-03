@@ -70,7 +70,7 @@ export default function StoreProfile() {
 
                     <div className="products-wrapper">
                         {store.posts.map(post => (
-                            <ProfilePost key={post._id} image={post.image_url} />
+                            <ProfilePost key={post._id} post={post} />
                         ))}
                     </div>
                 }

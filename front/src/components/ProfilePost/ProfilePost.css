@@ -1,4 +1,5 @@
-.profile-post {
+.store-profile-post {
   border: 1px solid lightgray;
   overflow: hidden;
+  position: relative;
 }
