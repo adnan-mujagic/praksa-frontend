@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
 import ProfilePost from "../ProfilePost/ProfilePost";
 import "./StoreProfile.css";
+import fetchData from "../../generic_functions/fetch";
 
 const useFetch = (params) => {
     const [store, setStore] = useState(null);
@@ -9,22 +10,20 @@ const useFetch = (params) => {
 
     useEffect(()=>{
 
-        async function fetchData() {
-            let url = "https://mediasell.herokuapp.com/api/stores/" + params;
-            let response = await fetch(url);
-            let result = await response.json();
+        async function getData() {
+            let url_suffix = "/stores/" + params;
+            
+            let result = await fetchData(url_suffix, "GET");
             let retrieved_store = result.data;
             
-            response = await fetch(url + "/posts");
-            
-            result = await response.json();
+            result = await fetchData(url_suffix + "/posts", "GET");
             retrieved_store.posts = result.data;
             console.log(retrieved_store);
             
             setStore(retrieved_store);
-            setLoading(false) 
+            setLoading(false);
         }
-        fetchData();
+        getData();
         
     },[params])
     return {store, loading}

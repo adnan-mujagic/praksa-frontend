@@ -2,29 +2,28 @@ import React, {useState, useEffect} from "react";
 import "./UserProfile.css";
 import StoreCard from "../StoreCard/StoreCard";
 import { useParams } from "react-router-dom";
+import fetchData from "../../generic_functions/fetch";
 
 const useFetch = (params) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
-        async function fetchData(){
-            let url = "https://mediasell.herokuapp.com/api/users/"+params.id;
-            let response = await fetch(url);
-            let result = await response.json();
+        async function getData(){
+            let url_suffix = "/users/" + params.id;
+
+            let result = await fetchData(url_suffix, "GET")
             let retrieved_user = result.data;
             //Now let's get the user's stores
-            url+="/stores";
-            response = await fetch(url);
+            result = await fetchData(url_suffix + "/stores", "GET")
             //Attaching the store objects to the retrieved_user object
-            result = await response.json();
             retrieved_user.stores = result.data;
             console.log(retrieved_user);
             //setting the loading state to false and passing the retrieved user as user
             setUser(retrieved_user);
             setLoading(false);
         }
-        fetchData();
+        getData();
     },[params.id])
     return {user, loading}
 }

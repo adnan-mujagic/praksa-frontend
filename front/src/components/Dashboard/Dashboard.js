@@ -1,6 +1,7 @@
 import React from "react";
 import "./Dashboard.css";
 import Post from "../Post/Post";
+import fetchData from "../../generic_functions/fetch";
 
 class Dashboard extends React.Component{
     state = {
@@ -9,10 +10,8 @@ class Dashboard extends React.Component{
     }
 
     async componentDidMount() {
-        const url="https://mediasell.herokuapp.com/api/posts";
-        const response = await fetch(url);
-        const results = await response.json();
-        this.setState({posts: results.data, loading:false})
+        const result = await fetchData("/posts", "GET");
+        this.setState({posts:result.data, loading:false})
     }
   
     componentWillUnmount() {
@@ -26,7 +25,7 @@ class Dashboard extends React.Component{
                 
                 <div>{this.state.posts.map(post => (
                     post.quantity && post.quantity>0?  
-                    <Post key={post._id} quantity={post.quantity} store_id={post.store._id} profile_picture={post.store.image} store_name={post.store.name} name={post.name} cost={post.cost} description={post.description} state={post.state} product_picture={post.image_url} />:
+                    <Post key={post._id} post_id={post._id} quantity={post.quantity} store_id={post.store._id} profile_picture={post.store.image} store_name={post.store.name} name={post.name} cost={post.cost} description={post.description} state={post.state} product_picture={post.image_url} />:
                     null
                 ))}
                 

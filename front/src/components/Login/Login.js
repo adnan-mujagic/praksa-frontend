@@ -1,16 +1,10 @@
 import React, {useState} from "react";
 import "./Login.css"
 import PropTypes from 'prop-types';
+import fetchData from "./../../generic_functions/fetch"
 
 async function loginUser(credentials) {
-    return fetch('https://mediasell.herokuapp.com/api/users/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(credentials)
-    })
-    .then(data => data.json())
+    return fetchData("/users/login", "POST", credentials);
 }
 
 export default function Login({setToken}){

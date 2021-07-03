@@ -1,5 +1,6 @@
 import React from "react";
 import "./Post.css"
+import buyFunction from "./BuyFunction";
 
 
 
@@ -7,6 +8,18 @@ export default class Post extends React.Component{
     constructor(props){
         super(props);
         this.onHeaderClick = this.onHeaderClick.bind(this);
+        this.onBuyButtonClick = this.onBuyButtonClick.bind(this);
+    }
+
+    state = {
+        quantity: this.props.quantity
+    }
+
+    async onBuyButtonClick(){
+        buyFunction(this.props.post_id, this.state.quantity)
+        this.setState({
+            quantity:this.state.quantity-1
+        })
     }
 
     onHeaderClick(){
@@ -42,7 +55,7 @@ export default class Post extends React.Component{
                             :
                             null
                         }
-                        <button className="post-buy-btn">Buy Item</button>
+                        <button className="post-buy-btn" onClick={this.onBuyButtonClick}>Buy Item</button>
                     </div>
                 </div>
             </div>
