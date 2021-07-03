@@ -1,3 +1,13 @@
+@media screen and (max-width: 1300px) {
+  .dashboard {
+    flex: 0.4;
+  }
+
+  .left-navbar {
+    flex: 0.3;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .left-navbar {
     display: none;
@@ -29,8 +39,5 @@
 @media screen and (max-width: 400px) {
   .post-content {
     display: block;
-  }
-  .post {
-    border-bottom: 15px solid rgb(238, 238, 238);
   }
 }

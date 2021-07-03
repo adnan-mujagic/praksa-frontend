@@ -48,13 +48,14 @@ export default class Post extends React.Component{
                     <div className="post-details">
                         <div className="product-name">{this.props.name}</div>
                         <div className="product-cost">US$ {this.props.cost}</div>
-                        <div className="product-state">State: {this.props.state}</div>
-                        <div className="product-description">Description: {this.props.description}</div>
                         {this.props.quantity?
-                            <div className="product-quantity">Quantity: {this.props.quantity}</div>
+                            <div className="product-quantity"><b>Quantity: </b>{this.props.quantity}</div>
                             :
                             null
                         }
+                        <div className="product-state"><b>State: </b>{this.props.state}</div>
+                        <div className="product-description"><b>Description: </b>{this.props.description}</div>
+                        
                         <button className="post-buy-btn" onClick={this.onBuyButtonClick}>Buy Item</button>
                     </div>
                 </div>

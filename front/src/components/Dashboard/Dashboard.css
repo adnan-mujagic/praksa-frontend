@@ -1,5 +1,6 @@
 .dashboard {
-  flex: 0.4;
+  flex: 0.6;
   border-right: 1px solid lightgray;
   min-height: calc(90vh - 1px);
+  overflow: hidden;
 }

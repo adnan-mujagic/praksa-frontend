@@ -1,5 +1,5 @@
 .left-navbar {
-  flex: 0.3;
+  flex: 0.2;
   border-right: 1px solid lightgray;
   min-height: calc(90vh - 1px);
   display: flex;
