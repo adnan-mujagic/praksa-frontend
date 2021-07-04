@@ -1,0 +1,42 @@
+.create-store {
+  border-bottom: 1px solid lightgray;
+}
+
+.create-store-header {
+  display: flex;
+  align-items: center;
+}
+
+.create-store-title {
+  color: rgb(100, 100, 100);
+  margin: 0px;
+  margin-left: 10px;
+  margin-bottom: -10px;
+  font-weight: normal;
+}
+
+.add-button {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid purple;
+  margin: 10px;
+  font-size: 10px;
+}
+
+.create-store-form {
+  box-shadow: none;
+  padding: 10px;
+  border-radius: none;
+}
+
+.create-store-form input {
+  display: block;
+  margin-top: 10px;
+}
+
+.create-store-submit-button {
+  margin: 0px;
+  margin-top: 10px;
+}

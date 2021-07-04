@@ -1,6 +1,7 @@
 import React from "react";
 import "./Dashboard.css";
 import Post from "../Post/Post";
+import Loading from "../Loading/Loading";
 import fetchData from "../../generic_functions/fetch";
 
 class Dashboard extends React.Component{
@@ -21,7 +22,7 @@ class Dashboard extends React.Component{
         return(
             <div className="dashboard">
                 {this.state.loading || !this.state.posts?
-                <div>Loading...</div>:
+                <Loading />:
                 
                 <div>{this.state.posts.map(post => (
                     post.quantity && post.quantity>0?  

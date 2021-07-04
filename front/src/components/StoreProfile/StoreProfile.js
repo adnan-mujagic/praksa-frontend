@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
 import ProfilePost from "../ProfilePost/ProfilePost";
+import Loading from "../Loading/Loading";
 import "./StoreProfile.css";
 import fetchData from "../../generic_functions/fetch";
 
@@ -42,7 +43,7 @@ export default function StoreProfile() {
 
     if(loading || !store){
         return(
-            <div>Loading...</div>
+            <Loading />
         )
     }
 

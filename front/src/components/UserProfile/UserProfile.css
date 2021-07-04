@@ -48,16 +48,17 @@
   color: crimson;
 }
 
-.user-profile-phone-number {
+.user-profile-contacts div {
   color: rgb(83, 83, 83);
   font-weight: normal;
   font-size: 12px;
+  display: flex;
+  align-items: center;
 }
 
-.user-profile-email {
-  color: rgb(83, 83, 83);
-  font-weight: normal;
-  font-size: 12px;
+.user-profile-contacts div:hover .icons {
+  transform: rotate(360deg);
+  transition: 0.5s;
 }
 
 .profile-stores-wrapper {
@@ -75,4 +76,10 @@
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.icons {
+  margin-right: 5px;
+  color: rgb(54, 54, 54);
+  font-size: 12px;
 }

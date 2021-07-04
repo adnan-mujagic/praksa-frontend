@@ -36,7 +36,7 @@ function App() {
         <Switch>
           <Route path="/dashboard">
             <div className="app-content">
-              <LeftNav username="adnan-mujagic"/>
+              <LeftNav/>
               <Dashboard />
             </div>
           </Route>

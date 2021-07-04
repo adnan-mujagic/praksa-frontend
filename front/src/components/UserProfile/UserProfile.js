@@ -1,8 +1,14 @@
 import React, {useState, useEffect} from "react";
 import "./UserProfile.css";
 import StoreCard from "../StoreCard/StoreCard";
+import Loading from "../Loading/Loading";
+import CreateStore from "../CreateStore/CreateStore";
 import { useParams } from "react-router-dom";
 import fetchData from "../../generic_functions/fetch";
+import { IconContext } from "react-icons/lib";
+import {GiSmartphone} from "react-icons/gi"
+import {HiOutlineMail} from "react-icons/hi"
+import jwtDecode from "../../generic_functions/jwt-decode";
 
 const useFetch = (params) => {
     const [user, setUser] = useState(null);
@@ -28,15 +34,23 @@ const useFetch = (params) => {
     return {user, loading}
 }
 
+const checkOwnership = (params) => {
+    const decoded = jwtDecode();
+    if(decoded.uid === params.id){
+        return true;
+    }
+    return false;
+}
+
 
 export default function UserProfile(){
     let id = useParams();
     const {user, loading} = useFetch(id);
-    
+    const [owner] = useState(checkOwnership(id));
 
     if(loading || !user){
         return(
-            <div>Loading...</div>
+            <Loading />
         )
     }
     
@@ -50,12 +64,15 @@ export default function UserProfile(){
                     <div className="user-profile-full-name">{user.full_name}</div>
                     <div className="user-profile-username">@{user.username}</div>
                     <div className="user-profile-contacts">
-                        Contact Information:
-                        <div className="user-profile-phone-number">Phone Number: {user.phone_nubmer}</div>
-                        <div className="user-profile-email">Email: {user.email}</div>
+                        <IconContext.Provider value={{className:"icons"}}>
+                            Contact Information:
+                            <div className="user-profile-phone-number"><GiSmartphone /> {user.phone_nubmer}</div>
+                            <div className="user-profile-email"><HiOutlineMail /> {user.email}</div>
+                        </IconContext.Provider>
                     </div>
                 </div>
             </div>
+            {owner?<CreateStore />:null}
             <div className = "profile-stores-wrapper">
                 <div className="profile-stores-header">{"Stores"}</div>
 

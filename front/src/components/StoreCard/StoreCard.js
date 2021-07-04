@@ -1,6 +1,9 @@
 import "./StoreCard.css";
 
 import React from "react";
+import { IconContext } from "react-icons/lib";
+import { BsMap} from "react-icons/bs"
+import { HiOutlineLocationMarker } from "react-icons/hi"
 
 
 
@@ -23,9 +26,11 @@ export default class StoreCard extends React.Component{
                     <img src={this.props.profile_picture?this.props.profile_picture:"https://image.freepik.com/free-vector/convenience-store-isometric-shop-24-hour-isometric-design_201904-46.jpg"} alt="Store"/>
                 </div>
                 <div className="store-card-details">
-                    <div className="store-card-name">{this.props.name}</div>
-                    <div className="store-card-location-city"> {this.props.city}</div>
-                    <div className="store-card-location-address"> {this.props.address}</div>
+                    <IconContext.Provider value={{className:"store-card-icon"}}>
+                        <div className="store-card-name">{this.props.name}</div>
+                        <div className="store-card-location-city"><BsMap /> {this.props.city}</div>
+                        <div className="store-card-location-address"><HiOutlineLocationMarker /> {this.props.address}</div>
+                    </IconContext.Provider>
                 </div>
             </div>
         )

@@ -1,7 +1,7 @@
-
 import "./LeftNav.css";
 import React from "react";
 import ProfileCard from "../ProfileCard/ProfileCard";
+import Loading from "../Loading/Loading";
 import fetchData from "../../generic_functions/fetch";
 var jwt = require('jsonwebtoken');
 
@@ -46,7 +46,7 @@ class LeftNav extends React.Component{
     render(){
         if(this.state.loading || !this.state.user){
             return(
-                <div className="left-navbar">Loading..</div>
+                <Loading />
             )
         }
         else{
