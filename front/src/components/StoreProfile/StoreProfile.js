@@ -2,12 +2,15 @@ import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
 import ProfilePost from "../ProfilePost/ProfilePost";
 import Loading from "../Loading/Loading";
+import CreatePost from "../CreatePost/CreatePost";
 import "./StoreProfile.css";
 import fetchData from "../../generic_functions/fetch";
+import jwtDecode from "../../generic_functions/jwt-decode";
 
-const useFetch = (params) => {
+const useFetch = (params, loadStores) => {
     const [store, setStore] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [owner, setOwner] = useState(false);
 
     useEffect(()=>{
 
@@ -22,20 +25,33 @@ const useFetch = (params) => {
             console.log(retrieved_store);
             
             setStore(retrieved_store);
+            setOwner(checkOwnership(retrieved_store.owner._id))
             setLoading(false);
         }
         getData();
         
-    },[params])
-    return {store, loading}
+    },[params, loadStores])
+    return {store, loading, owner}
 }
 
-
+const checkOwnership = (store_owner_id) =>{
+    const user = jwtDecode();
+    if(store_owner_id === user.uid){
+        return true;
+    }
+    return false;
+}
 
 export default function StoreProfile() {
     const {id} = useParams();
 
-    const {store, loading} = useFetch(id);
+    const [loadStores, setLoadStores] = useState(false);
+
+    const {store, loading, owner} = useFetch(id, loadStores);
+
+    const onStoresChanged = () => {
+        setLoadStores(!loadStores);
+    }
 
     const onUserClick = () =>{
         window.location = "/user/"+store.owner._id;
@@ -65,13 +81,14 @@ export default function StoreProfile() {
                     </div>
                 </div>
             </div>
+            {owner?<CreatePost setStores={onStoresChanged}/>:null}
             <div className="products">
                 {store.posts.length===0?
                     <div>This store isn't selling any items yet!</div>:
 
                     <div className="products-wrapper">
                         {store.posts.map(post => (
-                            <ProfilePost key={post._id} post={post} />
+                            <ProfilePost key={post._id} post={post} removable={owner}/>
                         ))}
                     </div>
                 }

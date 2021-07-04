@@ -27,12 +27,6 @@ export default function CreateStore() {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        console.log({
-            name,
-            city,
-            address,
-            image
-        })
         await fetchData("/users/" + id + "/stores", "POST", {
             name,
             city,
