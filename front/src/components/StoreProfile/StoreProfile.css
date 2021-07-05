@@ -57,6 +57,10 @@ img {
   overflow: hidden;
 }
 
+.store-profile-owner-image:hover {
+  cursor: pointer;
+}
+
 .store-profile-owner-username {
   margin-left: 5px;
 }

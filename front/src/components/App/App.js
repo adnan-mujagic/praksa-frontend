@@ -20,7 +20,6 @@ function App() {
         <Header />
         <Login setToken={setToken} />
       </div>
-        
     );
   }
   
@@ -32,20 +31,14 @@ function App() {
           <Route path="/login">
             <Login setToken={setToken}/>
           </Route>
-        </Switch>
-        <Switch>
           <Route path="/dashboard">
             <div className="app-content">
               <LeftNav/>
               <Dashboard />
             </div>
           </Route>
-        </Switch>
-        <Switch>
           <Route path="/user/:id" children ={<UserProfile />}>
           </Route>
-        </Switch>
-        <Switch>
           <Route path="/store/:id" children ={<StoreProfile />}>
           </Route>
         </Switch>
