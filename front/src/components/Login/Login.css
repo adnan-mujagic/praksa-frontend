@@ -10,7 +10,7 @@
   padding: 20px;
   border-radius: 12px;
   box-shadow: 5px 5px 15px 5px #8b8b8b;
-  width: 40%;
+  width: 30%;
 }
 
 p {
@@ -23,21 +23,4 @@ input {
   outline: 0px;
   border: 1px solid lightgray;
   padding: 5px;
-}
-
-.login-button {
-  background-color: transparent;
-  color: purple;
-  font-size: 15px;
-  padding: 5px;
-  border-radius: 20px;
-  border: 1px solid purple;
-  margin-left: 0px;
-}
-
-.login-button:hover {
-  cursor: pointer;
-  color: white;
-  background-color: purple;
-  transition: 0.3s;
 }

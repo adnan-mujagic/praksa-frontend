@@ -60,4 +60,17 @@ img {
   background-color: transparent;
   border: 1px solid purple;
   margin: 0px;
+  color: purple;
+}
+
+.profile-card-btn:hover {
+  cursor: pointer;
+  background: linear-gradient(
+    40deg,
+    rgba(94, 139, 255, 1) 16%,
+    rgba(255, 0, 164, 1) 91%
+  );
+
+  color: white;
+  transition: 0.4s;
 }

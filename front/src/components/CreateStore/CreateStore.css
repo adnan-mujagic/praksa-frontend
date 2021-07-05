@@ -25,6 +25,10 @@
   font-size: 10px;
 }
 
+.add-button:hover {
+  cursor: pointer;
+}
+
 .create-store-form {
   box-shadow: none;
   padding: 10px;
@@ -37,6 +41,18 @@
 }
 
 .create-store-submit-button {
-  margin: 0px;
   margin-top: 10px;
+  background: linear-gradient(
+    40deg,
+    rgba(94, 139, 255, 1) 16%,
+    rgba(255, 0, 164, 1) 91%
+  );
+  border: 0px;
+  padding: 8px;
+  color: white;
+  border-radius: 20px;
+}
+
+.create-store-submit-button:hover {
+  cursor: pointer;
 }

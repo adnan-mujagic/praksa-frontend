@@ -3,10 +3,17 @@
 }
 
 .create-post-button {
-  height: 30px;
   width: 30px;
+  height: 30px;
+  background-color: white;
   border-radius: 50%;
-  margin: 10px 0px 10px 20px;
+  border: 1px solid purple;
+  margin: 10px;
+  font-size: 10px;
+}
+
+.create-post-button:hover {
+  cursor: pointer;
 }
 
 .create-post-form {
@@ -44,6 +51,18 @@
 }
 
 .create-post-submit-button {
-  margin: 0px;
   margin-top: 10px;
+  background: linear-gradient(
+    40deg,
+    rgba(94, 139, 255, 1) 16%,
+    rgba(255, 0, 164, 1) 91%
+  );
+  border: 0px;
+  padding: 8px;
+  color: white;
+  border-radius: 20px;
+}
+
+.create-post-submit-button:hover {
+  cursor: pointer;
 }

@@ -8,10 +8,35 @@
   display: block;
 }
 
-.register .form-wrapper form {
-  width: fit-content;
+.form-wrapper form h2 {
+  background: linear-gradient(
+    40deg,
+    rgba(94, 139, 255, 1) 16%,
+    rgba(255, 0, 164, 1) 91%
+  );
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0px;
 }
 
 form label p {
   margin: 4px;
+}
+
+.form-wrapper form button {
+  margin: 0px;
+  border: none;
+  background-color: rgb(245, 245, 245);
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 5px 10px;
+
+  color: white;
+  border-radius: 10px;
+  background-color: rgba(94, 139, 255, 1);
+}
+
+.form-wrapper form button:hover {
+  cursor: pointer;
 }
