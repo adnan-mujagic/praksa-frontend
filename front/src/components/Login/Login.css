@@ -3,13 +3,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 16px;
 }
 
-form {
+.form-wrapper {
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 10px 10px 38px 0px rgba(63, 63, 63, 0.75);
-  min-width: 250px;
+  box-shadow: 5px 5px 15px 5px #8b8b8b;
+  width: 40%;
 }
 
 p {

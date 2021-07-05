@@ -9,6 +9,7 @@ import { IconContext } from "react-icons/lib";
 import {GiSmartphone} from "react-icons/gi"
 import {HiOutlineMail} from "react-icons/hi"
 import jwtDecode from "../../generic_functions/jwt-decode";
+import profile_picture from "./../../images/default_profile_pic.png";
 
 const useFetch = (params) => {
     const [user, setUser] = useState(null);
@@ -58,7 +59,7 @@ export default function UserProfile(){
         <div className="user-profile">
             <div className="profile-header">
                 <div className="user-profile-picture">
-                    <img src={user.profile_picture?user.profile_picture:"https://media.macphun.com/img/uploads/customer/how-to/579/15531840725c93b5489d84e9.43781620.jpg?q=85&w=1340"} alt="User"/>
+                    <img src={user.image?user.image:"https://image.flaticon.com/icons/png/512/3135/3135715.png"} alt="User"/>
                 </div>
                 <div className="user-profile-credentials">
                     <div className="user-profile-full-name">{user.full_name}</div>
@@ -66,7 +67,7 @@ export default function UserProfile(){
                     <div className="user-profile-contacts">
                         <IconContext.Provider value={{className:"icons"}}>
                             Contact Information:
-                            <div className="user-profile-phone-number"><GiSmartphone /> {user.phone_nubmer}</div>
+                            <div className="user-profile-phone-number"><GiSmartphone /> {user.phone_number}</div>
                             <div className="user-profile-email"><HiOutlineMail /> {user.email}</div>
                         </IconContext.Provider>
                     </div>

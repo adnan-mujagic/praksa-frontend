@@ -17,7 +17,6 @@ function App() {
   if(!token) {
     return (
       <div>
-        <Header />
         <Login setToken={setToken} />
       </div>
     );

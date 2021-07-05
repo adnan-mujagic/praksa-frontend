@@ -1,0 +1,17 @@
+.register {
+  display: flex;
+  justify-content: center;
+  margin: 16px;
+}
+
+.register .form-wrapper form input {
+  display: block;
+}
+
+.register .form-wrapper form {
+  width: fit-content;
+}
+
+form label p {
+  margin: 4px;
+}
