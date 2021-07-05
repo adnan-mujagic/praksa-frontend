@@ -21,6 +21,13 @@ export default function Register(props){
             image
         });
 
+        const response = await fetchData("/users/login", "POST", {
+            username,
+            password
+        });
+
+        props.setToken(response);
+
 
     }
 

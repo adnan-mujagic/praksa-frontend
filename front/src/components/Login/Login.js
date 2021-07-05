@@ -33,7 +33,7 @@ export default function Login({setToken}){
 
     if(showRegister){
         return(
-            <Register onSwitch={onSwitchToButtonClick} textToShow={textToShow}/>
+            <Register onSwitch={onSwitchToButtonClick} textToShow={textToShow} setToken = {setToken}/>
         )
     }
     return(
