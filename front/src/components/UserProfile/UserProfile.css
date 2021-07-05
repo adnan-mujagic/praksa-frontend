@@ -83,3 +83,7 @@
   color: rgb(54, 54, 54);
   font-size: 12px;
 }
+
+.empty-array-warning {
+  color: rgb(83, 83, 83);
+}

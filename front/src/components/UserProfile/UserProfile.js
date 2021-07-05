@@ -77,7 +77,9 @@ export default function UserProfile(){
                 <div className="profile-stores-header">{"Stores"}</div>
 
                 <div className="profile-stores">
-                    {user.stores.map(store => (
+                    {user.stores.length===0?
+                        <div className="empty-array-warning">This user hasn't registered any stores yet!</div>:
+                        user.stores.map(store => (
                         <StoreCard key={store._id} store_id={store._id} profile_picture={store.image} 
                         name={store.name} city={store.location.city} address={store.location.address}/>
                     ))}              

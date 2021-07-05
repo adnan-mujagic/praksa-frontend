@@ -84,7 +84,7 @@ export default function StoreProfile() {
             {owner?<CreatePost setStores={onStoresChanged}/>:null}
             <div className="products">
                 {store.posts.length===0?
-                    <div>This store isn't selling any items yet!</div>:
+                    <div className="empty-array-warning">This store isn't selling any items yet!</div>:
 
                     <div className="products-wrapper">
                         {store.posts.map(post => (
