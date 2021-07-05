@@ -9,7 +9,6 @@ import { IconContext } from "react-icons/lib";
 import {GiSmartphone} from "react-icons/gi"
 import {HiOutlineMail} from "react-icons/hi"
 import jwtDecode from "../../generic_functions/jwt-decode";
-import profile_picture from "./../../images/default_profile_pic.png";
 
 const useFetch = (params) => {
     const [user, setUser] = useState(null);

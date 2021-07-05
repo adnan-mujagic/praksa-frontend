@@ -42,7 +42,7 @@ class LeftNav extends React.Component{
         else{
             return(
                 <div className="left-navbar">
-                    <ProfileCard uid={this.state.user._id} username={this.state.user.username} full_name={this.state.user.full_name} profile_picutre="https://media.macphun.com/img/uploads/customer/how-to/579/15531840725c93b5489d84e9.43781620.jpg?q=85&w=1340"  stores={this.state.user.stores}/>
+                    <ProfileCard uid={this.state.user._id} username={this.state.user.username} full_name={this.state.user.full_name} profile_picutre={this.state.user.image}  stores={this.state.user.stores}/>
                 </div>
             )
         }

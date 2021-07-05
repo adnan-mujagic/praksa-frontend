@@ -75,7 +75,7 @@ export default function StoreProfile() {
                     <div className="store-profile-info">Address: {store.location.address}</div>
                     <div className="store-profile-owner">
                         <div className="store-profile-owner-image">
-                            <img alt="Store owner" onClick={onUserClick} src={store.owner.image?store.owner.image: "https://media.macphun.com/img/uploads/customer/how-to/579/15531840725c93b5489d84e9.43781620.jpg?q=85&w=1340"}/>
+                            <img alt="Store owner" onClick={onUserClick} src={store.owner.image?store.owner.image: "https://image.flaticon.com/icons/png/512/3135/3135715.png"}/>
                         </div>
                         <div className="store-profile-owner-username" onClick={onUserClick}>@{store.owner.username}</div>
                     </div>
