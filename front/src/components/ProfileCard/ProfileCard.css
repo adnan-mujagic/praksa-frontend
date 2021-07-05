@@ -15,6 +15,10 @@
   margin-right: 16px;
 }
 
+.profile-card-img:hover {
+  cursor: pointer;
+}
+
 img {
   max-width: 135%;
   max-height: 135%;
@@ -34,6 +38,10 @@ img {
 .profile-card-username {
   color: rgb(161, 161, 161);
   font-size: 12px;
+}
+
+.profile-card-username:hover {
+  cursor: pointer;
 }
 
 .profile-card-other {
