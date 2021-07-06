@@ -1,4 +1,6 @@
 import "./Register.css";
+import { IconContext } from "react-icons/lib";
+import {IoWarningOutline} from "react-icons/io5"
 import { useState } from "react";
 import fetchData from "../../generic_functions/fetch";
 
@@ -10,9 +12,12 @@ export default function Register(props){
     const [phoneNumber, setPhoneNumber] = useState("");
     const [image, setImage] = useState("");
 
+    const [warningExists, setWarningExists] = useState(false);
+    const [warningMessage, setWarningMessage] = useState("");
+
     const handleSubmit = async e => {
         e.preventDefault();
-        await fetchData("/users", "POST", {
+        const result = await fetchData("/users", "POST", {
             full_name:fullName,
             username,
             password,
@@ -21,14 +26,19 @@ export default function Register(props){
             image
         });
 
-        const response = await fetchData("/users/login", "POST", {
-            username,
-            password
-        });
+        if(result.data){
+            const response = await fetchData("/users/login", "POST", {
+                username,
+                password
+            });
 
-        props.setToken(response);
+            props.setToken(response);
+        }
 
-
+        else{
+            setWarningMessage(result.status);
+            setWarningExists(true);
+        }
     }
 
     return(
@@ -36,6 +46,14 @@ export default function Register(props){
             <div className="form-wrapper">
                 <form onSubmit={handleSubmit}>
                     <h2>Please register in the form below!</h2>
+                    {
+                        warningExists?
+                        <IconContext.Provider value={{className:"login-warning-icon"}}>
+                            <div className="warning-wrapper"><IoWarningOutline /> {warningMessage}</div>
+                        </IconContext.Provider>
+                        :
+                        null
+                    }
                     <label>
                         <p>Full Name</p>
                         <input type="text" required placeholder="Full name..." onChange={e => setFullName(e.target.value)}/>

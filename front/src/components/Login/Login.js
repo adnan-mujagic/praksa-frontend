@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import "./Login.css"
+import { IconContext } from "react-icons/lib";
+import {IoWarningOutline} from "react-icons/io5"
 import PropTypes from 'prop-types';
 import Register from "../Register/Register";
 import fetchData from "./../../generic_functions/fetch"
@@ -11,6 +13,8 @@ async function loginUser(credentials) {
 export default function Login({setToken}){
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
+    const [warningExists, setWarningExists] = useState(false);
+    const [warningMessage, setWarningMessage] = useState("");
 
     const [showRegister, setShowRegister] = useState(false)
 
@@ -18,6 +22,7 @@ export default function Login({setToken}){
 
     const onSwitchToButtonClick = () =>{
         setShowRegister(!showRegister);
+        setWarningExists(false);
         showRegister?setTextToShow("Want to register?"):setTextToShow("Already have an accout?");
     }
 
@@ -27,8 +32,13 @@ export default function Login({setToken}){
           username,
           password
         });
-        console.log(data);
-        setToken(data);
+        if(data.token){
+            setToken(data);
+        }
+        else{
+            setWarningExists(true);
+            setWarningMessage(data.status);
+        }
     }
 
     if(showRegister){
@@ -41,6 +51,14 @@ export default function Login({setToken}){
             <div className="form-wrapper">
                 <form onSubmit={handleSubmit}>
                     <h2>Hello, please sign in in the form below!</h2>
+                    {
+                        warningExists?
+                        <IconContext.Provider value={{className:"login-warning-icon"}}>
+                            <div className="warning-wrapper"><IoWarningOutline /> {warningMessage}</div>
+                        </IconContext.Provider>
+                        :
+                        null
+                    }
                     <label>
                         <p>Username</p>
                         <input type="text" placeholder="Username..." onChange={e => setUserName(e.target.value)}/>
