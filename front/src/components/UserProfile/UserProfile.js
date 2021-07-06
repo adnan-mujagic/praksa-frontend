@@ -10,13 +10,13 @@ import {GiSmartphone} from "react-icons/gi"
 import {HiOutlineMail} from "react-icons/hi"
 import jwtDecode from "../../generic_functions/jwt-decode";
 
-const useFetch = (params) => {
+const useFetch = (id) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
         async function getData(){
-            let url_suffix = "/users/" + params.id;
+            let url_suffix = "/users/" + id;
 
             let result = await fetchData(url_suffix, "GET")
             let retrieved_user = result.data;
@@ -30,13 +30,13 @@ const useFetch = (params) => {
             setLoading(false);
         }
         getData();
-    },[params.id])
+    },[id])
     return {user, loading}
 }
 
-const checkOwnership = (params) => {
+const checkOwnership = (id) => {
     const decoded = jwtDecode();
-    if(decoded.uid === params.id){
+    if(decoded.uid === id){
         return true;
     }
     return false;
@@ -44,9 +44,13 @@ const checkOwnership = (params) => {
 
 
 export default function UserProfile(){
-    let id = useParams();
+    let {id} = useParams();
     const {user, loading} = useFetch(id);
     const [owner] = useState(checkOwnership(id));
+
+    const onEditProfileClick = () =>{
+        window.location = "/user/" + id + "/edit"
+    }
 
     if(loading || !user){
         return(
@@ -68,6 +72,7 @@ export default function UserProfile(){
                             Contact Information:
                             <div className="user-profile-phone-number"><GiSmartphone /> {user.phone_number}</div>
                             <div className="user-profile-email"><HiOutlineMail /> {user.email}</div>
+                            {owner?<button className="edit-profile-btn" onClick={onEditProfileClick}>Edit Profile</button>:null}
                         </IconContext.Provider>
                     </div>
                 </div>

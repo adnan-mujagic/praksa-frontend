@@ -87,3 +87,15 @@
 .empty-array-warning {
   color: rgb(83, 83, 83);
 }
+
+.edit-profile-btn {
+  display: block;
+  margin-top: 5px;
+  padding: 5px;
+  border: 1px solid lightgray;
+  border-radius: 15px;
+}
+
+.edit-profile-btn:hover {
+  cursor: pointer;
+}

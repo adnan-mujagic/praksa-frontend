@@ -1,0 +1,62 @@
+.edit-profile {
+  min-height: calc(90vh - 1px);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border-right: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+}
+.picture-changer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.picture-changer-image-container {
+  height: 170px;
+  width: 170px;
+  overflow: hidden;
+  border-radius: 16px;
+  margin: 20px;
+}
+
+.edit-other-information {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edit-other-information label p {
+  font-weight: normal;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.form-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-other-information button {
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid lightgray;
+  border-radius: 15px;
+}
+
+.edit-other-information button:hover {
+  cursor: pointer;
+}
+
+.invalid-user-warning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(90vh - 1px);
+}
+
+.warning-icon {
+  font-size: 5em;
+  display: block;
+  color: crimson;
+}

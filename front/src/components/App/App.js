@@ -7,6 +7,7 @@ import Header from '../Header/Header';
 import Login from '../Login/Login';
 import UserProfile from '../UserProfile/UserProfile';
 import StoreProfile from '../StoreProfile/StoreProfile';
+import EditProfile from '../EditProfile/EditProfile';
 import "../../Responsive.css"
 import React from 'react';
 import useToken from './useToken';
@@ -36,9 +37,11 @@ function App() {
               <Dashboard />
             </div>
           </Route>
-          <Route path="/user/:id" children ={<UserProfile />}>
+          <Route exact path="/user/:id" children ={<UserProfile />}>
           </Route>
           <Route path="/store/:id" children ={<StoreProfile />}>
+          </Route>
+          <Route path="/user/:id/edit" children ={<EditProfile />}>
           </Route>
         </Switch>
       </BrowserRouter>
