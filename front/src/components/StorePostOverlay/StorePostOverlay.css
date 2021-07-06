@@ -28,3 +28,15 @@
   color: darkmagenta;
   font-size: 40px;
 }
+
+.store-post-overlay button {
+  margin-left: 10px;
+  margin-top: 10px;
+  border: 1px solid lightgray;
+  padding: 8px;
+  border-radius: 20px;
+}
+
+.store-post-overlay button:hover {
+  cursor: pointer;
+}

@@ -6,6 +6,7 @@ import fetchData from "../../generic_functions/fetch";
 import Loading from "../Loading/Loading";
 import { IconContext } from "react-icons/lib";
 import {IoWarningOutline} from "react-icons/io5"
+import {IoIosCheckmarkCircleOutline} from "react-icons/io"
 
 function checkOwnership(id) {
     const decoded = jwtDecode();
@@ -67,11 +68,14 @@ export default function EditProfile(props){
     
 
     const [owner, setOwner] = useState(false);
+    const [warningExists, setWarningExists] = useState(false);
+    const [updateExists, setUpdateExists] = useState(false);
+    const [status, setStatus] = useState("");
 
     useEffect(()=>{
         setOwner(checkOwnership(id));
     },[id])
-    
+
     const update = async () => {
         const data = await fetchData("/users/" + id, "PUT", {
             image,
@@ -81,7 +85,16 @@ export default function EditProfile(props){
             email,
             phone_number:phoneNumber
         });
-        alert(data.status) 
+        if(data.data){
+            setWarningExists(false);
+            setUpdateExists(true);
+            setStatus(data.status);
+        }
+        else{
+            setUpdateExists(false);
+            setWarningExists(true);
+            setStatus(data.status);
+        }
     }
 
     const onBackToProfile = () => {
@@ -114,6 +127,27 @@ export default function EditProfile(props){
             </div>
             
             <div className="edit-other-information">
+                {
+                    warningExists?
+                    <IconContext.Provider value={{className:"bad-update-icon"}}>
+                        <div className="bad-update-warning-wrapper">
+                            <IoWarningOutline />
+                            <div>{status}</div>
+                        </div>
+                    </IconContext.Provider>
+                    :
+                    null
+                }
+                {
+                    updateExists?
+                    <IconContext.Provider value={{className:"success-icon"}}>
+                        <div className="success-wrapper">
+                            <IoIosCheckmarkCircleOutline />
+                            <div>{status}</div> 
+                        </div>
+                    </IconContext.Provider>:
+                    null
+                }
                 <label>
                     <p>Image URL</p>
                     <input type="text" placeholder="Enter image url..." value={image} onChange={e => setImage(e.target.value)}/>

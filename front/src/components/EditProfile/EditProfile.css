@@ -39,6 +39,7 @@
 
 .edit-other-information button {
   margin-top: 10px;
+  margin-bottom: 10px;
   padding: 5px;
   border: 1px solid lightgray;
   border-radius: 15px;
@@ -59,4 +60,54 @@
   font-size: 5em;
   display: block;
   color: crimson;
+}
+
+.bad-update-icon {
+  font-size: 40px;
+  color: crimson;
+  margin-right: 5px;
+}
+
+.success-icon {
+  font-size: 40px;
+  color: rgb(0, 255, 76);
+  margin-right: 5px;
+}
+
+.bad-update-warning-wrapper {
+  font-size: 12px;
+  width: 160px;
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid crimson;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 0, 0, 0.1);
+  animation: popup 1s 2;
+}
+
+.success-wrapper {
+  font-size: 12px;
+  width: 160px;
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid rgb(0, 255, 76);
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 255, 76, 0.1);
+  animation: popup 1s 2;
+}
+
+@keyframes popup {
+  0% {
+    transform: rotate(2deg);
+  }
+
+  50% {
+    transform: rotate(-4deg);
+  }
+
+  100% {
+    transform: rotate(2deg);
+  }
 }
