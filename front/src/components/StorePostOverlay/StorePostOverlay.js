@@ -1,6 +1,6 @@
 import React from "react";
 import "./StorePostOverlay.css";
-import buyFunction from "../Post/BuyFunction";
+import buy from "../Post/BuyFunction";
 
 export default class StorePostOverlay extends React.Component{
     constructor(props){
@@ -13,7 +13,10 @@ export default class StorePostOverlay extends React.Component{
     }
 
     async onBuy() {
-        buyFunction(this.props.details._id, this.state.quantity);
+        if(this.state.quantity<=0){
+            return;
+        }
+        buy(this.props.details._id, this.state.quantity);
         this.setState({quantity:this.state.quantity-1});
     }
 

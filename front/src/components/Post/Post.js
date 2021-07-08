@@ -1,6 +1,6 @@
 import React from "react";
 import "./Post.css"
-import buyFunction from "./BuyFunction";
+import buy from "./BuyFunction";
 
 
 
@@ -16,9 +16,13 @@ export default class Post extends React.Component{
     }
 
     async onBuyButtonClick(){
-        buyFunction(this.props.post_id, this.state.quantity)
-        this.setState({
-            quantity:this.state.quantity-1
+        if(this.state.quantity<=0){
+            return;
+        }
+        buy(this.props.post_id, this.state.quantity)
+        .then((res) => {
+            const new_quantity = res.data.quantity;
+            this.setState({quantity:new_quantity});
         })
     }
 
